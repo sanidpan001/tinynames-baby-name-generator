@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyNames — Baby Name Generator with Meanings, Origins &amp; Favourites</title>
+<meta name="description" content="TinyNames is a free baby name generator with 130+ curated names, meanings and origins. Filter by origin, style and length, shuffle fresh ideas and save favourites.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Nunito',sans-serif;background:#EAF6FF}
+h1,h2,h3,.brandfont{font-family:'Fredoka',sans-serif}
+.card{background:#fff;border:2px solid #FFE3D3;border-radius:1.25rem}
+.namecard{transition:transform .15s ease, box-shadow .15s ease}
+.namecard:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(251,146,60,.18)}
+.pill.active{background:#0EA5E9;color:#fff;border-color:#0EA5E9}
+select,input[type=text]{outline:none}
+select:focus,input:focus{border-color:#38BDF8!important;box-shadow:0 0 0 3px #BAE6FD}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the TinyNames baby name generator work?","acceptedAnswer":{"@type":"Answer","text":"Pick a gender, origin, style and length, then press Shuffle Suggestions. TinyNames draws from a curated bank of more than 130 names, each with a meaning, and shows fresh cards every time. You can narrow results further with search and starting-letter filters."}},{"@type":"Question","name":"Are the name meanings and origins accurate?","acceptedAnswer":{"@type":"Answer","text":"Meanings are short, widely accepted summaries of each name's traditional sense and origin language. They are a helpful starting point for shortlisting, but if a meaning matters deeply to your family, confirm it in a dedicated etymology reference before you finalise the birth certificate."}},{"@type":"Question","name":"How do favourites work and are they private?","acceptedAnswer":{"@type":"Answer","text":"Tap the heart on any name card to save it. Favourites are stored only in your own browser using localStorage, so they stay on your device, need no account, and are never uploaded anywhere. Clearing your browser data will clear your list."}},{"@type":"Question","name":"What is the difference between short, medium and long names here?","acceptedAnswer":{"@type":"Answer","text":"TinyNames groups names by letter count: short names have four letters or fewer, medium names have five or six letters, and long names have seven letters or more. Short names pair well with long surnames, while longer names can balance a very short family name."}},{"@type":"Question","name":"Can I find gender-neutral baby names on TinyNames?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose the Neutral option in the gender filter to see names commonly used for any child, including nature names like River and Sky and modern choices like Avery, Quinn and Kai. You can combine the neutral filter with any origin or style."}},{"@type":"Question","name":"Is TinyNames free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, TinyNames is completely free with unlimited usage. There is no sign-up, no paywall and no watermark. Generate as many name ideas as you like, save favourites and copy your shortlist at no cost."}}]}
+</script>
+</head>
+<body id="top" class="text-slate-800">
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b-2 border-orange-100">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+    <a href="#top" class="flex items-center gap-2">
+      <span class="text-2xl" aria-hidden="true">🍼</span>
+      <span class="brandfont text-2xl font-bold text-sky-600">Tiny<span class="text-orange-400">Names</span></span>
+    </a>
+    <nav class="flex items-center gap-2 sm:gap-4 text-sm font-bold">
+      <a href="#top" class="px-3 py-2 rounded-full hover:bg-sky-50 text-sky-700">Home</a>
+      <a href="https://fixoraa.tech" class="px-3 py-2 rounded-full bg-sky-500 text-white hover:bg-sky-600">More Tools</a>
+    </nav>
+  </div>
+</header>
+
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pt-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <div class="origin-top scale-[0.44] sm:scale-100 shrink-0">
+        <script>
+          atOptions = { 'key' : '4e68ac77881c17fe128a46565d9a4e8c', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="mx-auto max-w-6xl px-4 sm:px-6">
+  <!-- Nursery hero -->
+  <section class="relative mt-4 rounded-[2rem] overflow-hidden bg-gradient-to-br from-sky-200 via-sky-100 to-orange-100 border-2 border-white shadow-sm px-5 py-8 sm:px-10 sm:py-10 text-center">
+    <div class="text-4xl mb-2" aria-hidden="true">☁️ 🌈 ⭐</div>
+    <h1 class="text-3xl sm:text-5xl font-bold text-slate-800 leading-tight">Baby Name Generator</h1>
+    <p class="mt-3 max-w-2xl mx-auto text-slate-600 font-semibold">Welcome to the TinyNames nursery — a cosy corner with <strong>133 hand-picked names</strong>, their meanings and origins. Filter, shuffle, fall in love, and save your favourites.</p>
+    <span class="inline-block mt-4 bg-white text-sky-700 border-2 border-sky-200 font-extrabold text-xs tracking-wide uppercase px-4 py-2 rounded-full shadow-sm">✓ Unlimited Free Usage — No Sign-up</span>
+    <div class="mt-5 flex flex-wrap justify-center gap-2 text-xs font-bold">
+      <span class="bg-white/80 px-3 py-1.5 rounded-full">133 curated names</span>
+      <span class="bg-white/80 px-3 py-1.5 rounded-full">14 origins</span>
+      <span class="bg-white/80 px-3 py-1.5 rounded-full">8 styles</span>
+      <span class="bg-white/80 px-3 py-1.5 rounded-full">❤ Favourites saved on your device</span>
+    </div>
+  </section>
+
+  <!-- Tool -->
+  <section class="grid lg:grid-cols-3 gap-5 mt-6 items-start">
+    <div class="lg:col-span-2 card p-5 sm:p-6 shadow-sm">
+      <h2 class="text-xl font-bold">Find a name you love</h2>
+      <p class="text-sm text-slate-500 font-semibold mt-1">Choose your filters, then shuffle for fresh suggestions. Tap the heart to keep a name.</p>
+
+      <div class="mt-4">
+        <label class="text-xs font-extrabold uppercase tracking-wide text-slate-500" for="searchInput">Search name or meaning</label>
+        <input id="searchInput" type="text" placeholder="Try Luna, star, moon…" class="mt-1 w-full border-2 border-sky-100 rounded-xl px-4 py-2.5 font-semibold bg-sky-50/50">
+      </div>
+
+      <div class="mt-4">
+        <span class="text-xs font-extrabold uppercase tracking-wide text-slate-500">Who is the name for?</span>
+        <div class="flex flex-wrap gap-2 mt-2" id="genderPills">
+          <button type="button" data-gender="all" class="pill active border-2 border-sky-200 bg-white px-4 py-2 rounded-full font-bold text-sm">All</button>
+          <button type="button" data-gender="girl" class="pill border-2 border-sky-200 bg-white px-4 py-2 rounded-full font-bold text-sm">👧 Girl</button>
+          <button type="button" data-gender="boy" class="pill border-2 border-sky-200 bg-white px-4 py-2 rounded-full font-bold text-sm">👦 Boy</button>
+          <button type="button" data-gender="neutral" class="pill border-2 border-sky-200 bg-white px-4 py-2 rounded-full font-bold text-sm">🌈 Neutral</button>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-3 mt-4">
+        <div>
+          <label class="text-xs font-extrabold uppercase tracking-wide text-slate-500" for="originSelect">Origin</label>
+          <select id="originSelect" class="mt-1 w-full border-2 border-sky-100 rounded-xl px-3 py-2.5 font-semibold bg-white"></select>
+        </div>
+        <div>
+          <label class="text-xs font-extrabold uppercase tracking-wide text-slate-500" for="styleSelect">Style</label>
+          <select id="styleSelect" class="mt-1 w-full border-2 border-sky-100 rounded-xl px-3 py-2.5 font-semibold bg-white"></select>
+        </div>
+        <div>
+          <label class="text-xs font-extrabold uppercase tracking-wide text-slate-500" for="lengthSelect">Length</label>
+          <select id="lengthSelect" class="mt-1 w-full border-2 border-sky-100 rounded-xl px-3 py-2.5 font-semibold bg-white">
+            <option value="all">Any length</option>
+            <option value="short">Short (1–4 letters)</option>
+            <option value="medium">Medium (5–6 letters)</option>
+            <option value="long">Long (7+ letters)</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-extrabold uppercase tracking-wide text-slate-500" for="letterSelect">Starts with</label>
+          <select id="letterSelect" class="mt-1 w-full border-2 border-sky-100 rounded-xl px-3 py-2.5 font-semibold bg-white"></select>
+        </div>
+        <div>
+          <label class="text-xs font-extrabold uppercase tracking-wide text-slate-500" for="sortSelect">Sort results</label>
+          <select id="sortSelect" class="mt-1 w-full border-2 border-sky-100 rounded-xl px-3 py-2.5 font-semibold bg-white">
+            <option value="az">A to Z</option>
+            <option value="za">Z to A</option>
+            <option value="shortest">Shortest first</option>
+            <option value="longest">Longest first</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-extrabold uppercase tracking-wide text-slate-500" for="surnameInput">Your surname (preview)</label>
+          <input id="surnameInput" type="text" placeholder="e.g. Sharma" class="mt-1 w-full border-2 border-sky-100 rounded-xl px-4 py-2.5 font-semibold bg-sky-50/50">
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mt-5">
+        <button id="shuffleBtn" type="button" class="bg-orange-400 hover:bg-orange-500 text-white font-extrabold px-6 py-3 rounded-full shadow">🎲 Shuffle 6 Suggestions</button>
+        <button id="showAllBtn" type="button" class="bg-sky-500 hover:bg-sky-600 text-white font-extrabold px-6 py-3 rounded-full shadow">Show All Matching</button>
+        <button id="resetBtn" type="button" class="bg-white border-2 border-slate-200 hover:border-sky-300 font-extrabold px-5 py-3 rounded-full">Reset Filters</button>
+      </div>
+
+      <p id="resultCount" class="mt-4 text-sm font-bold text-sky-700" role="status"></p>
+      <div id="resultsGrid" class="grid sm:grid-cols-2 gap-3 mt-3"></div>
+      <div id="emptyState" class="hidden mt-3 bg-orange-50 border-2 border-dashed border-orange-200 rounded-2xl p-5 text-center">
+        <p class="font-bold">No names match those filters yet 🧸</p>
+        <p class="text-sm text-slate-500 font-semibold mt-1">Try a different origin or style, clear the search box, or press Reset Filters to start again.</p>
+      </div>
+    </div>
+
+    <!-- Favourites nursery shelf -->
+    <aside class="card p-5 shadow-sm lg:sticky lg:top-24 bg-gradient-to-b from-white to-orange-50">
+      <h2 class="text-xl font-bold">❤ My Favourites <span id="favCount" class="text-sm text-orange-500"></span></h2>
+      <p class="text-xs text-slate-500 font-semibold mt-1">Saved privately in this browser only. They will still be here when you come back.</p>
+      <ul id="favList" class="mt-3 space-y-2"></ul>
+      <p id="favEmpty" class="text-sm font-semibold text-slate-400 mt-3">No favourites yet — tap a heart on any name card to pin it here.</p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <button id="copyFavBtn" type="button" class="bg-sky-500 hover:bg-sky-600 text-white text-sm font-extrabold px-4 py-2.5 rounded-full">📋 Copy Shortlist</button>
+        <button id="clearFavBtn" type="button" class="bg-white border-2 border-slate-200 text-sm font-extrabold px-4 py-2.5 rounded-full">Clear All</button>
+      </div>
+      <p id="copyMsg" class="text-xs font-bold text-emerald-600 mt-2" role="status"></p>
+      <div class="mt-5 bg-sky-50 border-2 border-sky-100 rounded-2xl p-4">
+        <h3 class="font-bold text-sm">💡 Say it out loud test</h3>
+        <p class="text-xs text-slate-500 font-semibold mt-1">Read each favourite with your surname, whisper it, shout it across a playground, and imagine it on a birthday cake. The right name usually survives all three tests.</p>
+      </div>
+    </aside>
+  </section>
+
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pb-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="464498"></script>
+    </div>
+  </div>
+</div>
+
+  <!-- SEO Article -->
+  <article id="seo-article" class="card p-6 sm:p-10 mt-2 mb-8 shadow-sm">
+    <h2 class="text-2xl sm:text-3xl font-bold">Choosing a Baby Name: A Gentle, Practical Guide</h2>
+    <p class="mt-4 leading-relaxed text-slate-600">Choosing a baby name is one of the first gifts you will ever give your child, and for many parents it is also one of the most joyful puzzles of pregnancy. A name is whispered in the delivery room, called across playgrounds, written on school notebooks, printed on certificates and spoken with pride for a lifetime. That is a lot of work for a few letters to do, which is why a calm, organised way of exploring names makes the whole experience lighter. TinyNames was built as a small, friendly nursery for that search: a curated bank of names with meanings and origins, simple filters for origin, style and length, a shuffle button for fresh inspiration, and a private favourites shelf where your shortlist can grow at its own pace.</p>
+    <p class="mt-4 leading-relaxed text-slate-600">Most parents begin in one of two places. Some arrive with a family tradition to honour, a beloved grandparent, a place, a faith or a language they want reflected in the name. Others arrive with only a feeling: something soft, something strong, something short, something that sounds good with their surname. Both starting points are equally valid, and a good generator should serve both. That is why filtering by origin matters as much as filtering by sound. If your family story spans two cultures, browsing Sanskrit names beside Greek, Japanese, Arabic, Irish or Hawaiian names lets you see how different traditions solve the same human wish: to give a child a word that means light, courage, peace, beauty or gratitude.</p>
+    <h3 class="text-xl font-bold mt-6">Why meanings still matter</h3>
+    <p class="mt-3 leading-relaxed text-slate-600">Not every parent cares about literal meaning, and no child is limited by the dictionary definition of their name. Still, meanings give many families a story to tell. A name meaning dawn, like Aurora, can mark a new beginning. A name meaning wisdom, like Sophia, can express a hope. Nature names such as Luna, Willow, River and Kai connect a child to the moon, trees, water and the sea, and they tend to feel calm and timeless at the same time. Mythic names like Freya, Apollo, Orion and Atlas carry old stories of love, music, stars and strength. Royal names such as Aurelia, Cyrus, Darius and Arthur have a natural gravitas, while short modern names like Ava, Leo, Mia and Zayn feel bright, friendly and easy to spell. When you read the meaning on each TinyNames card, treat it as an invitation rather than a rule: if the story makes you smile every time you read it, the name deserves a place on your shortlist.</p>
+    <h3 class="text-xl font-bold mt-6">Length, rhythm and your surname</h3>
+    <p class="mt-3 leading-relaxed text-slate-600">Length is the quiet filter many parents discover late, usually after saying a full name out loud for the fiftieth time. TinyNames groups names into short names of four letters or fewer, medium names of five or six letters, and long names of seven letters or more. As a rough rhythm guide, short first names often sing beside long surnames, because the contrast keeps the full name crisp. Long, melodic first names can beautifully balance a very short surname. Medium names are the flexible middle ground and pair well with almost anything. Use the surname preview box in the tool: type your family name once, and every card shows the full combination, so you can judge rhythm instantly instead of imagining it. Say the pairing slowly, say it quickly, and say it the way a teacher, a friend and a future employer might. If it still feels good in all three voices, it is a strong candidate.</p>
+    <p class="mt-4 leading-relaxed text-slate-600">Nicknames deserve the same honest test. Almost every long name grows a shorter everyday form, and many short names grow affectionate extensions at home. Ask yourself whether you like the likely nicknames as much as the full name, whether the initials spell anything unfortunate, and whether the name is easy for grandparents, teachers and the child themselves to pronounce and spell. A name does not need to be foolproof in every language on earth, but a quick check for awkward meanings in languages your family actually speaks is a kind, practical step.</p>
+    <h3 class="text-xl font-bold mt-6">Classic, modern, vintage and everything between</h3>
+    <p class="mt-3 leading-relaxed text-slate-600">Style filters help when your taste is clear but your list is not. Classic names like Ella, Noah, Oliver and Chloe have been loved for generations and rarely feel dated. Modern names such as Aria, Vivaan, Soren and Quinn feel current without chasing a single season of fashion. Vintage names including Hazel, Felix, Odette and Jasper have an old-soul charm that has returned to nurseries everywhere. Literary names like Tristan, Harper, Emerson and Marlowe quietly nod to stories and writers. Boho names such as Indigo, Dakota and Oakley feel free-spirited and earthy. None of these styles is better than another; the useful question is which style still feels right when you imagine the name on a toddler, a teenager and a grown adult signing their first important document. Names that age gracefully tend to win in the end.</p>
+    <h3 class="text-xl font-bold mt-6">Gender, neutrality and family agreement</h3>
+    <p class="mt-3 leading-relaxed text-slate-600">Many families today happily explore gender-neutral names, and the neutral filter gathers choices like Alex, Jordan, Sky, Sage, Avery and Shiloh in one place. Neutral names can be a thoughtful option if you are keeping the baby's sex a surprise, if you want siblings to share a naming style, or if you simply love a name for its sound and meaning. Whatever you choose, agreement matters more than perfection. A practical method is for each parent to heart their own favourites independently, then compare shelves. Names that appear on both lists are your natural finalists. Names on only one list deserve one out-loud reading and an honest conversation before they are cut. Keep the process kind: you are not winning an argument, you are choosing a word you will both say with love thousands of times.</p>
+    <h3 class="text-xl font-bold mt-6">A simple shortlisting routine that works</h3>
+    <p class="mt-3 leading-relaxed text-slate-600">Start wide and finish narrow. In the first session, shuffle freely, change origins often, and heart anything that sparks even a small yes; aim for a generous list of fifteen to twenty-five names. Live with that list for a few days, because names genuinely grow on people, and first reactions at midnight are not always reliable. In the second session, use the surname preview and the say-it-out-loud test to trim the list to about five. Check meanings once more, test nicknames and initials, and imagine each name in everyday sentences: calling it at the park, writing it on a lunchbox, hearing it at a graduation. In the final session, sleep on the top two or three. Many parents find that one name quietly keeps returning, and that gentle persistence is often the answer. If you are truly tied, remember that middle names exist precisely for honouring the runner-up.</p>
+    <p class="mt-4 leading-relaxed text-slate-600">One last reassurance: there is no single perfect name waiting to be discovered, only names that fit your child, your family and your story well. Children grow into their names and make them their own, usually within weeks of arriving. Trust the process, enjoy the browsing, take breaks when the list blurs together, and let TinyNames do the organising while you do the dreaming. Your favourites are saved privately on your own device, so you can return to your nursery shelf whenever inspiration strikes, with no account, no cost and no pressure. Happy naming, and congratulations on the wonderful reason you are here.</p>
+
+    <h2 class="text-2xl font-bold mt-10">Frequently Asked Questions</h2>
+    <div class="space-y-4 mt-4">
+      <div class="bg-sky-50 rounded-2xl p-4"><h3 class="font-bold">How does the TinyNames baby name generator work?</h3><p class="text-slate-600 mt-1">Pick a gender, origin, style and length, then press Shuffle Suggestions. TinyNames draws from a curated bank of more than 130 names, each with a meaning, and shows fresh cards every time. You can narrow results further with search and starting-letter filters.</p></div>
+      <div class="bg-sky-50 rounded-2xl p-4"><h3 class="font-bold">Are the name meanings and origins accurate?</h3><p class="text-slate-600 mt-1">Meanings are short, widely accepted summaries of each name's traditional sense and origin language. They are a helpful starting point for shortlisting, but if a meaning matters deeply to your family, confirm it in a dedicated etymology reference before you finalise the birth certificate.</p></div>
+      <div class="bg-sky-50 rounded-2xl p-4"><h3 class="font-bold">How do favourites work and are they private?</h3><p class="text-slate-600 mt-1">Tap the heart on any name card to save it. Favourites are stored only in your own browser using localStorage, so they stay on your device, need no account, and are never uploaded anywhere. Clearing your browser data will clear your list.</p></div>
+      <div class="bg-sky-50 rounded-2xl p-4"><h3 class="font-bold">What is the difference between short, medium and long names here?</h3><p class="text-slate-600 mt-1">TinyNames groups names by letter count: short names have four letters or fewer, medium names have five or six letters, and long names have seven letters or more. Short names pair well with long surnames, while longer names can balance a very short family name.</p></div>
+      <div class="bg-sky-50 rounded-2xl p-4"><h3 class="font-bold">Can I find gender-neutral baby names on TinyNames?</h3><p class="text-slate-600 mt-1">Yes. Choose the Neutral option in the gender filter to see names commonly used for any child, including nature names like River and Sky and modern choices like Avery, Quinn and Kai. You can combine the neutral filter with any origin or style.</p></div>
+      <div class="bg-sky-50 rounded-2xl p-4"><h3 class="font-bold">Is TinyNames free to use?</h3><p class="text-slate-600 mt-1">Yes, TinyNames is completely free with unlimited usage. There is no sign-up, no paywall and no watermark. Generate as many name ideas as you like, save favourites and copy your shortlist at no cost.</p></div>
+    </div>
+  </article>
+</main>
+<footer class="border-t-2 border-sky-100 bg-white">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-6 text-center text-sm font-semibold text-slate-500">
+    <p><span class="brandfont text-sky-600 font-bold">TinyNames</span> — every great story starts with a name. Made with care for new beginnings.</p>
+  </div>
+<p class="fx-credit" style="text-align:center;font-size:12.5px;opacity:.62;margin:10px auto 2px;letter-spacing:.01em">Made by <a href="https://fixoraa.tech" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px">Fixoraa</a></p>
+</footer>
+
+<script id="lib-tinynames">
+var TinyNamesLib = (function () {
+  function N(name, meaning, origin, style, gender) {
+    return { name: name, meaning: meaning, origin: origin, style: style, gender: gender };
+  }
+  var NAMES = [
+    N("Ava","Life and grace","Latin","Modern","girl"),
+    N("Mia","Beloved","Italian","Modern","girl"),
+    N("Luna","Moon","Latin","Nature","girl"),
+    N("Isla","Island","English","Nature","girl"),
+    N("Ella","Light and fairy maiden","English","Classic","girl"),
+    N("Aria","Melody and song","Italian","Modern","girl"),
+    N("Zara","Radiant flower","Arabic","Modern","girl"),
+    N("Priya","Beloved","Sanskrit","Classic","girl"),
+    N("Anaya","Gracious and without a superior","Sanskrit","Modern","girl"),
+    N("Ira","Earth goddess","Sanskrit","Vintage","girl"),
+    N("Sana","Brilliance and radiance","Arabic","Modern","girl"),
+    N("Amara","Grace and eternal","Latin","Modern","girl"),
+    N("Nora","Light and honour","Irish","Classic","girl"),
+    N("Freya","Noble lady, goddess of love","Scandinavian","Mythic","girl"),
+    N("Elisa","Pledged to God","Hebrew","Classic","girl"),
+    N("Chloe","Blooming and fertile","Greek","Classic","girl"),
+    N("Sophia","Wisdom","Greek","Classic","girl"),
+    N("Hana","Flower","Japanese","Nature","girl"),
+    N("Yuki","Snow","Japanese","Nature","girl"),
+    N("Leila","Night beauty","Persian","Classic","girl"),
+    N("Cleo","Glory of the father","Greek","Vintage","girl"),
+    N("Iris","Rainbow","Greek","Nature","girl"),
+    N("Ruby","Deep red gemstone","Latin","Vintage","girl"),
+    N("Hazel","Hazelnut tree","English","Vintage","girl"),
+    N("Willow","Graceful tree","English","Nature","girl"),
+    N("Aurora","Dawn","Latin","Mythic","girl"),
+    N("Stella","Star","Latin","Classic","girl"),
+    N("Violet","Purple flower","Latin","Vintage","girl"),
+    N("Rose","Flower of love","Latin","Classic","girl"),
+    N("Lily","Pure and innocent flower","Latin","Classic","girl"),
+    N("Maya","Illusion and magic","Sanskrit","Modern","girl"),
+    N("Tara","Star","Sanskrit","Nature","girl"),
+    N("Nina","Little girl","Italian","Modern","girl"),
+    N("Kira","Sun and light","Persian","Modern","girl"),
+    N("Anya","Grace","Hebrew","Classic","girl"),
+    N("Esme","Loved and esteemed","French","Vintage","girl"),
+    N("Camille","Perfect and noble","French","Classic","girl"),
+    N("Odette","Wealthy","French","Vintage","girl"),
+    N("Elise","God is my oath","French","Classic","girl"),
+    N("Leona","Lioness","Latin","Royal","girl"),
+    N("Regina","Queen","Latin","Royal","girl"),
+    N("Aurelia","Golden","Latin","Royal","girl"),
+    N("Seraphina","Fiery angel","Hebrew","Royal","girl"),
+    N("Leilani","Heavenly flower","Hawaiian","Nature","girl"),
+    N("Moana","Ocean","Hawaiian","Nature","girl"),
+    N("Liam","Strong-willed warrior","Irish","Modern","boy"),
+    N("Noah","Rest and comfort","Hebrew","Classic","boy"),
+    N("Oliver","Olive tree, symbol of peace","Latin","Classic","boy"),
+    N("Arjun","Bright and shining","Sanskrit","Classic","boy"),
+    N("Vivaan","Full of life, like the sun","Sanskrit","Modern","boy"),
+    N("Kabir","Great and powerful","Arabic","Classic","boy"),
+    N("Rohan","Ascending and blossoming","Sanskrit","Modern","boy"),
+    N("Aarav","Peaceful sound","Sanskrit","Modern","boy"),
+    N("Ethan","Strong and firm","Hebrew","Classic","boy"),
+    N("Lucas","Light-giving","Latin","Classic","boy"),
+    N("Mateo","Gift of God","Hebrew","Modern","boy"),
+    N("Leo","Lion","Latin","Modern","boy"),
+    N("Felix","Happy and lucky","Latin","Classic","boy"),
+    N("Hugo","Mind and spirit","Latin","Modern","boy"),
+    N("Theo","Gift of God","Greek","Modern","boy"),
+    N("Apollo","God of sun and music","Greek","Mythic","boy"),
+    N("Orion","Rising star and hunter","Greek","Mythic","boy"),
+    N("Atlas","Bearer of the heavens","Greek","Mythic","boy"),
+    N("Finn","Fair and white","Irish","Modern","boy"),
+    N("Declan","Man of prayer","Irish","Classic","boy"),
+    N("Rowan","Little redhead and rowan tree","Irish","Nature","boy"),
+    N("Kenji","Strong and healthy","Japanese","Classic","boy"),
+    N("Ren","Lotus and love","Japanese","Nature","boy"),
+    N("Hiro","Generous and prosperous","Japanese","Classic","boy"),
+    N("Omar","Flourishing and full of life","Arabic","Classic","boy"),
+    N("Zayn","Beauty and grace","Arabic","Modern","boy"),
+    N("Idris","Interpreter and prophet","Arabic","Classic","boy"),
+    N("Emil","Eager and industrious","Latin","Vintage","boy"),
+    N("Anders","Brave man","Scandinavian","Classic","boy"),
+    N("Soren","Stern and serious","Scandinavian","Modern","boy"),
+    N("Leif","Heir and descendant","Scandinavian","Nature","boy"),
+    N("Dario","Possessing goodness","Persian","Classic","boy"),
+    N("Cyrus","Sun and throne","Persian","Royal","boy"),
+    N("Darius","King and wealthy","Persian","Royal","boy"),
+    N("Rhys","Ardour and enthusiasm","Welsh","Modern","boy"),
+    N("Gareth","Gentle and modest","Welsh","Classic","boy"),
+    N("Tristan","Bold knight","Welsh","Literary","boy"),
+    N("Arthur","Bear king","Welsh","Royal","boy"),
+    N("Jasper","Treasurer and gemstone","Persian","Vintage","boy"),
+    N("Silas","Forest and wood","Latin","Nature","boy"),
+    N("Ezra","Helper","Hebrew","Classic","boy"),
+    N("Jonah","Dove","Hebrew","Classic","boy"),
+    N("Micah","Who is like God","Hebrew","Classic","boy"),
+    N("Luca","Bringer of light","Italian","Modern","boy"),
+    N("Enzo","Home ruler","Italian","Modern","boy"),
+    N("Alex","Defender of people","Greek","Modern","neutral"),
+    N("Jordan","To flow down, like a river","Hebrew","Modern","neutral"),
+    N("Taylor","To cut, tailor","English","Modern","neutral"),
+    N("Sky","Heavens above","English","Nature","neutral"),
+    N("River","Flowing water","English","Nature","neutral"),
+    N("Sage","Wise one and herb","Latin","Nature","neutral"),
+    N("Wren","Small songbird","English","Nature","neutral"),
+    N("Robin","Famous and bright","English","Nature","neutral"),
+    N("Quinn","Wisdom and chief","Irish","Modern","neutral"),
+    N("Avery","Ruler of elves","English","Modern","neutral"),
+    N("Emerson","Brave and powerful","English","Literary","neutral"),
+    N("Finley","Fair warrior","Irish","Modern","neutral"),
+    N("Harper","Harp player","English","Literary","neutral"),
+    N("Indigo","Deep blue dye","Greek","Boho","neutral"),
+    N("Jules","Youthful","Latin","Vintage","neutral"),
+    N("Kai","Sea","Hawaiian","Nature","neutral"),
+    N("Noa","Movement and motion","Hebrew","Modern","neutral"),
+    N("Remy","Oarsman","French","Modern","neutral"),
+    N("Sasha","Defender","Greek","Modern","neutral"),
+    N("Devon","Poet and defender","English","Modern","neutral"),
+    N("Arya","Noble and honoured","Sanskrit","Modern","neutral"),
+    N("Kiran","Ray of light","Sanskrit","Nature","neutral"),
+    N("Noor","Light","Arabic","Modern","neutral"),
+    N("Amal","Hope and aspiration","Arabic","Classic","neutral"),
+    N("Rumi","Beauty and lapis lazuli","Japanese","Literary","neutral"),
+    N("Akira","Bright and clear","Japanese","Modern","neutral"),
+    N("Sora","Sky","Japanese","Nature","neutral"),
+    N("Charlie","Free person","English","Classic","neutral"),
+    N("Sam","God has heard","Hebrew","Classic","neutral"),
+    N("Jamie","Loved supplanter","Hebrew","Classic","neutral"),
+    N("Casey","Brave in battle","Irish","Modern","neutral"),
+    N("Dakota","Friend and ally","English","Boho","neutral"),
+    N("Ellis","Benevolent","Welsh","Vintage","neutral"),
+    N("Morgan","Sea-born","Welsh","Classic","neutral"),
+    N("Reese","Ardour and enthusiasm","Welsh","Modern","neutral"),
+    N("Blair","Dwelling on the plain","English","Modern","neutral"),
+    N("Jesse","Gift","Hebrew","Classic","neutral"),
+    N("Marlowe","Lake remnants and driftwood","English","Literary","neutral"),
+    N("Oakley","Oak meadow","English","Boho","neutral"),
+    N("Peyton","Fighting spirit estate","English","Modern","neutral"),
+    N("Shiloh","Peaceful and tranquil","Hebrew","Nature","neutral"),
+    N("Toni","Priceless one","Latin","Vintage","neutral"),
+    N("Val","Strength and health","Latin","Modern","neutral")
+  ];
+  function lengthCategory(nameStr) {
+    var n = String(nameStr || "").trim().length;
+    if (n <= 4) return "short";
+    if (n <= 6) return "medium";
+    return "long";
+  }
+  function getOrigins(list) {
+    var src = list || NAMES, seen = {}, out = [];
+    src.forEach(function (e) { if (!seen[e.origin]) { seen[e.origin] = 1; out.push(e.origin); } });
+    return out.sort();
+  }
+  function getStyles(list) {
+    var src = list || NAMES, seen = {}, out = [];
+    src.forEach(function (e) { if (!seen[e.style]) { seen[e.style] = 1; out.push(e.style); } });
+    return out.sort();
+  }
+  function filterNames(list, filters) {
+    var src = Array.isArray(list) ? list.slice() : NAMES.slice();
+    var f = filters || {};
+    var origin = (f.origin || "all").toLowerCase();
+    var style = (f.style || "all").toLowerCase();
+    var length = (f.length || "all").toLowerCase();
+    var gender = (f.gender || "all").toLowerCase();
+    var query = (f.query || "").toLowerCase().trim();
+    var startsWith = (f.startsWith || "").toLowerCase().trim();
+    return src.filter(function (e) {
+      if (origin !== "all" && e.origin.toLowerCase() !== origin) return false;
+      if (style !== "all" && e.style.toLowerCase() !== style) return false;
+      if (gender !== "all" && e.gender.toLowerCase() !== gender) return false;
+      if (length !== "all" && lengthCategory(e.name) !== length) return false;
+      if (query && e.name.toLowerCase().indexOf(query) === -1 && e.meaning.toLowerCase().indexOf(query) === -1) return false;
+      if (startsWith && e.name.toLowerCase().indexOf(startsWith) !== 0) return false;
+      return true;
+    });
+  }
+  function pickRandom(list, count, rng) {
+    var src = (Array.isArray(list) ? list : []).slice();
+    var rand = typeof rng === "function" ? rng : Math.random;
+    for (var i = src.length - 1; i > 0; i--) {
+      var j = Math.floor(rand() * (i + 1));
+      var t = src[i]; src[i] = src[j]; src[j] = t;
+    }
+    var n = typeof count === "number" && count > 0 ? Math.floor(count) : 6;
+    return src.slice(0, Math.min(n, src.length));
+  }
+  function isFavourite(favs, name) {
+    return Array.isArray(favs) && favs.indexOf(name) !== -1;
+  }
+  function toggleFavourite(favs, name) {
+    var out = Array.isArray(favs) ? favs.slice() : [];
+    var idx = out.indexOf(name);
+    if (idx === -1) out.push(name); else out.splice(idx, 1);
+    return out;
+  }
+  function sortNames(list, mode) {
+    var src = (Array.isArray(list) ? list : []).slice();
+    if (mode === "az") src.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    else if (mode === "za") src.sort(function (a, b) { return b.name.localeCompare(a.name); });
+    else if (mode === "shortest") src.sort(function (a, b) { return a.name.length - b.name.length || a.name.localeCompare(b.name); });
+    else if (mode === "longest") src.sort(function (a, b) { return b.name.length - a.name.length || a.name.localeCompare(b.name); });
+    return src;
+  }
+  return { NAMES: NAMES, lengthCategory: lengthCategory, getOrigins: getOrigins, getStyles: getStyles, filterNames: filterNames, pickRandom: pickRandom, isFavourite: isFavourite, toggleFavourite: toggleFavourite, sortNames: sortNames };
+})();
+if (typeof module !== "undefined" && module.exports) { module.exports = TinyNamesLib; }
+
+</script>
+<script>
+(function(){
+  var L = TinyNamesLib;
+  var state = { gender: "all" };
+  var favs = [];
+  try { favs = JSON.parse(localStorage.getItem("tinynames-favs") || "[]"); if(!Array.isArray(favs)) favs = []; } catch(e){ favs = []; }
+  var originSel = document.getElementById("originSelect");
+  var styleSel = document.getElementById("styleSelect");
+  var letterSel = document.getElementById("letterSelect");
+  function fillSelect(sel, values, allLabel){
+    sel.innerHTML = "";
+    var o = document.createElement("option"); o.value = "all"; o.textContent = allLabel; sel.appendChild(o);
+    values.forEach(function(v){ var op = document.createElement("option"); op.value = v; op.textContent = v; sel.appendChild(op); });
+  }
+  fillSelect(originSel, L.getOrigins(), "All origins");
+  fillSelect(styleSel, L.getStyles(), "All styles");
+  (function(){
+    letterSel.innerHTML = "";
+    var o = document.createElement("option"); o.value = ""; o.textContent = "Any letter"; letterSel.appendChild(o);
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(function(ch){ var op = document.createElement("option"); op.value = ch; op.textContent = ch; letterSel.appendChild(op); });
+  })();
+  function currentFilters(){
+    return {
+      gender: state.gender,
+      origin: originSel.value,
+      style: styleSel.value,
+      length: document.getElementById("lengthSelect").value,
+      query: document.getElementById("searchInput").value,
+      startsWith: letterSel.value
+    };
+  }
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function render(list, label){
+    var grid = document.getElementById("resultsGrid");
+    var empty = document.getElementById("emptyState");
+    var surname = document.getElementById("surnameInput").value.trim();
+    grid.innerHTML = "";
+    document.getElementById("resultCount").textContent = label + " — " + list.length + (list.length===1 ? " name found" : " names found");
+    if(!list.length){ empty.classList.remove("hidden"); return; }
+    empty.classList.add("hidden");
+    list.forEach(function(e){
+      var isFav = L.isFavourite(favs, e.name);
+      var full = surname ? e.name + " " + surname : e.name;
+      var div = document.createElement("div");
+      div.className = "namecard bg-gradient-to-br from-white to-sky-50 border-2 border-sky-100 rounded-2xl p-4";
+      div.innerHTML = '<div class="flex items-start justify-between gap-2"><div><p class="brandfont text-2xl font-bold text-slate-800">' + esc(e.name) + '</p>' +
+        '<p class="text-xs font-bold text-slate-400">' + esc(full) + ' · ' + e.name.length + ' letters</p></div>' +
+        '<button type="button" data-fav="' + esc(e.name) + '" aria-label="Save ' + esc(e.name) + ' to favourites" class="text-2xl leading-none">' + (isFav ? "❤️" : "🤍") + '</button></div>' +
+        '<p class="mt-2 font-semibold text-slate-600">“' + esc(e.meaning) + '”</p>' +
+        '<div class="flex flex-wrap gap-1.5 mt-3 text-[11px] font-extrabold uppercase tracking-wide">' +
+        '<span class="bg-sky-100 text-sky-700 px-2 py-1 rounded-full">' + esc(e.origin) + '</span>' +
+        '<span class="bg-orange-100 text-orange-600 px-2 py-1 rounded-full">' + esc(e.style) + '</span>' +
+        '<span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">' + esc(e.gender) + '</span>' +
+        '<span class="bg-violet-100 text-violet-700 px-2 py-1 rounded-full">' + esc(L.lengthCategory(e.name)) + '</span></div>';
+      grid.appendChild(div);
+    });
+    grid.querySelectorAll("[data-fav]").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        favs = L.toggleFavourite(favs, btn.getAttribute("data-fav"));
+        saveFavs(); renderFavs();
+        var cur = L.sortNames(L.filterNames(L.NAMES, currentFilters()), document.getElementById("sortSelect").value);
+        render(lastList.length ? lastList : cur, lastLabel);
+      });
+    });
+  }
+  var lastList = [], lastLabel = "Suggestions";
+  function showAll(){
+    var filtered = L.filterNames(L.NAMES, currentFilters());
+    lastList = L.sortNames(filtered, document.getElementById("sortSelect").value);
+    lastLabel = "All matching names";
+    render(lastList, lastLabel);
+  }
+  function shuffle(){
+    var filtered = L.filterNames(L.NAMES, currentFilters());
+    lastList = L.pickRandom(filtered, 6);
+    lastLabel = "Fresh suggestions";
+    render(lastList, lastLabel);
+  }
+  function saveFavs(){ try { localStorage.setItem("tinynames-favs", JSON.stringify(favs)); } catch(e){} }
+  function renderFavs(){
+    var ul = document.getElementById("favList"); ul.innerHTML = "";
+    document.getElementById("favCount").textContent = favs.length ? "(" + favs.length + ")" : "";
+    document.getElementById("favEmpty").style.display = favs.length ? "none" : "block";
+    favs.forEach(function(name){
+      var entry = L.NAMES.filter(function(x){ return x.name === name; })[0];
+      var li = document.createElement("li");
+      li.className = "flex items-center justify-between gap-2 bg-white border-2 border-orange-100 rounded-xl px-3 py-2";
+      li.innerHTML = '<span class="font-bold">' + esc(name) + (entry ? ' <span class="block text-xs font-semibold text-slate-400">' + esc(entry.meaning) + ' · ' + esc(entry.origin) + '</span>' : '') + '</span><button type="button" data-remove="' + esc(name) + '" class="text-slate-400 font-extrabold px-2" aria-label="Remove ' + esc(name) + '">✕</button>';
+      ul.appendChild(li);
+    });
+    ul.querySelectorAll("[data-remove]").forEach(function(btn){
+      btn.addEventListener("click", function(){ favs = L.toggleFavourite(favs, btn.getAttribute("data-remove")); saveFavs(); renderFavs(); render(lastList, lastLabel); });
+    });
+  }
+  document.getElementById("genderPills").addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-gender]"); if(!b) return;
+    state.gender = b.getAttribute("data-gender");
+    document.querySelectorAll("#genderPills .pill").forEach(function(p){ p.classList.toggle("active", p === b); });
+    showAll();
+  });
+  [originSel, styleSel, letterSel, document.getElementById("lengthSelect"), document.getElementById("sortSelect")].forEach(function(el){ el.addEventListener("change", showAll); });
+  document.getElementById("searchInput").addEventListener("input", showAll);
+  document.getElementById("surnameInput").addEventListener("input", function(){ render(lastList, lastLabel); });
+  document.getElementById("shuffleBtn").addEventListener("click", shuffle);
+  document.getElementById("showAllBtn").addEventListener("click", showAll);
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    document.getElementById("searchInput").value = "";
+    document.getElementById("surnameInput").value = "";
+    originSel.value = "all"; styleSel.value = "all";
+    document.getElementById("lengthSelect").value = "all"; letterSel.value = "";
+    document.getElementById("sortSelect").value = "az";
+    state.gender = "all";
+    document.querySelectorAll("#genderPills .pill").forEach(function(p){ p.classList.toggle("active", p.getAttribute("data-gender") === "all"); });
+    shuffle();
+  });
+  document.getElementById("clearFavBtn").addEventListener("click", function(){ favs = []; saveFavs(); renderFavs(); render(lastList, lastLabel); });
+  document.getElementById("copyFavBtn").addEventListener("click", function(){
+    var msg = document.getElementById("copyMsg");
+    if(!favs.length){ msg.textContent = "Add at least one favourite first."; return; }
+    var text = "My TinyNames shortlist: " + favs.join(", ");
+    function done(){ msg.textContent = "Shortlist copied — happy naming!"; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, function(){ msg.textContent = text; }); }
+    else { msg.textContent = text; }
+  });
+  renderFavs();
+  shuffle();
+})();
+</script>
+</body>
+</html>
